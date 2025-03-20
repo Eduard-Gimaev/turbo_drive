@@ -1,7 +1,5 @@
-<%= form_with model: @quote do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <%= form.submit %>
+<% if params[:turbo] == "false" %>
+  <%= render 'form_without_turbo' %>
+<% else %>
+  <%= render 'form_with_turbo' %>
 <% end %>

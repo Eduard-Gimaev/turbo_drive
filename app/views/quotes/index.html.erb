@@ -1,8 +1,31 @@
 <main class="container">
   <div class="header">
     <h1>Quotes</h1>
-    <%= link_to "New quote", new_quote_path, class: "btn btn--primary" %>
+
+    <!-- Ссылка с включённым Turbo Drive -->
+    <%= link_to "New quote (Turbo Drive)", new_quote_path, class: "btn btn--primary" %>
+    <!-- Ссылка с отключённым Turbo Drive -->
+    <%= link_to "New quote (No Turbo)", new_quote_path, class: "btn btn--secondary", data: { turbo: false } %>
+
   </div>
 
-  <%= render @quotes %>
+  <div id="quotes">
+    <%= render @quotes %>
+  </div>
+
+  <div class="quote-form">
+    <h2>Create a new Quote</h2>
+
+    <!-- Форма с включённым Turbo Drive -->
+    <%= form_with(model: @quote, local: true) do |form| %>
+      <%= form.text_field :name, placeholder: "Enter quote name" %>
+      <%= form.submit "Create" %>
+    <% end %>
+
+    <!-- Форма с отключённым Turbo Drive -->
+    <%= form_with(model: @quote, local: true, data: { turbo: false }) do |form| %>
+      <%= form.text_field :name, placeholder: "Enter quote name" %>
+      <%= form.submit "Create (No Turbo)" %>
+    <% end %>
+  </div>
 </main>
