@@ -1,0 +1,11 @@
+.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(to right, #4a00e0, #8e2de2, #f80759);
+  z-index: 2147483647;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
